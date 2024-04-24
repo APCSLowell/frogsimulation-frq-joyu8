@@ -15,25 +15,26 @@ public class FrogSimulation
 	
 	public boolean simulate()
 	{ 
-		int frogPosition = 0;
-   		int hopsRemaining = maxHops;
-
-   		 while(frogPosition < goalDistance && frogPosition >= 0 && hopsRemaining > 0){
-        		frogPosition += hopDistance();
-        		hopsRemaining--;
-    		}
-		 return frogPosition >= goalDistance;
+		int distance = 0;
+		int hops = 0;
+		while(hops < maxHops){
+			distance = distance + hopDistance();
+			hops++;
+			if(distance < 0)
+				return false;
+			else if(distance >= goalDistance)
+				return true;
+		}
+		return false;
 	}
 	
 	public double runSimulations(int num)
 	{ 
-		int successfulRuns = 0;
-
-    for(int run = 1; run <= num; run++)
-        if(simulate())
-            successfulRuns++;
-
-    return successfulRuns / (double) num;
+		double success = 0;
+		for(int i = 0; i < num; i++)
+			if(simulate() == true)
+				success++;
+		return success/num;
 	}
 	
 	
