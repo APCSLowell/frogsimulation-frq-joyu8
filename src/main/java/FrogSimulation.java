@@ -27,13 +27,13 @@ public class FrogSimulation
 	
 	public double runSimulations(int num)
 	{ 
-		double success = 0;
-		for(int i = 0; i < num; i++){
-			if(simulate() == true)
-				success++;
-		}
-		return success/num;
+		int successfulRuns = 0;
 
+    for(int run = 1; run <= num; run++)
+        if(simulate())
+            successfulRuns++;
+
+    return successfulRuns / (double) num;
 	}
 	
 	
