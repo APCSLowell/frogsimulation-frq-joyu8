@@ -42,6 +42,7 @@ public class FrogSimulation
 	//-------------------------------------------------------------------------------------
 	private int[] hopValues;
 	private int hopIndex = 0;
+	11111
 	private int row=0;
 	private int col=0;
 	
