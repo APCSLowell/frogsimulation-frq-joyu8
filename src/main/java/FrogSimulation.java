@@ -15,13 +15,24 @@ public class FrogSimulation
 	
 	public boolean simulate()
 	{ 
-		/* to be implemented in part (a) */
+		int frogPosition = 0;
+   		int hopsRemaining = maxHops;
 
+   		 while(frogPosition < goalDistance && frogPosition >= 0 && hopsRemaining > 0){
+        		frogPosition += hopDistance();
+        		hopsRemaining--;
+    		}
+		 return frogPosition >= goalDistance;
 	}
 	
 	public double runSimulations(int num)
 	{ 
-		/* to be implemented in part (b) */ 
+		double success = 0;
+		for(int i = 0; i < num; i++){
+			if(simulate() == true)
+				success++;
+		}
+		return success/num;
 
 	}
 	
@@ -30,8 +41,7 @@ public class FrogSimulation
 	//-------------------------------------------------------------------------------------
 	private int[] hopValues;
 	private int hopIndex = 0;
-	
-	private int[][] hopValuesMatrix;
+	111111
 	private int row=0;
 	private int col=0;
 	
